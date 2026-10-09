@@ -4,7 +4,7 @@
 Bypasses Council Bluffs Community School District Chromebook's external storage restrictions by posing as a micro:bit storage device with a Waveshare RP2040-Zero (using VID and PID). This works because they approved the micro:bits storage vid and pid for computer science.
 \
 \
-Instructions:\
+Instructions:<br>
 1. Download and flash [Circuit Python](https://circuitpython.org/board/waveshare_rp2040_zero/) if you haven't already
 2. Download [source code](https://github.com/onepointfive-REAL/CBCSDStorageBypassRP2040/releases)
 3. Copy `boot.py` and `code.py` to the `CIRCUITPY` drive
