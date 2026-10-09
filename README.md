@@ -12,7 +12,7 @@ Bypasses Council Bluffs Community School District Chromebook's external storage 
 
 ## Serial Commands
 
-Connect to the board's serial console and enter one of the following commands.
+Connect to the board's serial console and enter one of the following commands. (you might need to do ctrl+d first if the prompt `USB>` haven't shown yet)
 
 | Command     | Description                                                                                                   |
 | ----------- | ------------------------------------------------------------------------------------------------------------- |
