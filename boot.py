@@ -31,7 +31,7 @@ if mode == "1":
     vid = read_usb_id("vid.txt", DEFAULT_VID)
     pid = read_usb_id("pid.txt", DEFAULT_PID)
     supervisor.set_usb_identification(
-        manufacturer="microbit",
+        manufacturer="NotCBCSD",
         product="RP2040",
         vid=vid,
         pid=pid
