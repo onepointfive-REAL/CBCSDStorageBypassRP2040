@@ -12,19 +12,31 @@ Bypasses Council Bluffs Community School District Chromebook's external storage 
 
 ## Serial Commands
 
-Connect to the board's serial console and enter one of the following commands. (you might need to do ctrl+d first if the prompt `USB>` haven't shown yet)
+Connect to the board's serial console and enter one of the following commands. You might need to press `Ctrl+D` first if the `USB>` prompt hasn't appeared yet.
 
-| Command     | Description                                                                                                   |
-| ----------- | ------------------------------------------------------------------------------------------------------------- |
-| `help`      | Lists all available commands.                                                                                 |
-| `customusb` | Switches to Custom USB VID/PID mode and restarts the device.                                                  |
-| `normalusb` | Switches to Normal USB VID/PID mode and restarts the device.                                                  |
-| `setvidpid` | Sets a custom USB Vendor ID (VID) and Product ID (PID) using hexadecimal values.                              |
-| `status`    | Displays the currently selected USB VID/PID mode.                                                             |
-| `label`     | Changes the USB drive's volume label. Enter up to 11 characters, or leave it blank to delete the saved label. |
-| `files`     | Lists files and folders in the root directory.                                                                |
-| `stat`      | Displays storage statistics, including total and free space.                                                  |
-| `reset`     | Restarts the microcontroller.                                                                                 |
-| `version`   | Displays the CircuitPython version information.                                                               |
-| `device`    | Displays information about the microcontroller and its platform.                                              |
-| `repl`      | Exits the command interface and returns to the CircuitPython REPL.                                            |
+| Command | Description |
+|---|---|
+| `help` | Lists available commands and usage instructions. |
+| `customusb` | Switches to Custom USB VID/PID mode and restarts the device. |
+| `normalusb` | Switches to Normal USB VID/PID mode and restarts the device. |
+| `setvidpid` | Sets a custom USB Vendor ID (VID) and Product ID (PID) using hexadecimal values. |
+| `status` | Displays USB settings and storage statistics, including total and free space. |
+| `label` | Changes the USB drive's volume label. Enter up to 11 characters, or leave blank to delete the saved label. |
+| `ls` | Lists files and folders in a directory, including file sizes. Enter a directory path when prompted, or leave blank to list the root directory. |
+| `cat` | Displays the contents of a text file. |
+| `write` | Creates a text file or overwrites an existing file after confirmation. |
+| `mkdir` | Creates a directory at the specified path. |
+| `rm` | Deletes a file or folder after confirmation. Can recursively delete folders and their contents. |
+| `uptime` | Displays how long the device has been running. |
+| `reset` | Restarts the microcontroller. |
+| `version` | Displays the CircuitPython version information. |
+| `device` | Displays information about the microcontroller and its platform. |
+| `repl` | Exits the command interface and returns to the CircuitPython REPL. |
+
+### Usage Notes
+
+- Commands do not accept arguments directly. Enter the command first, then follow the prompts.
+- For `ls`, leave the directory path blank to list `/`, or enter a path such as `/sd` or `/lib`.
+- For `rm`, confirm the deletion when prompted. The root directory `/` cannot be deleted.
+- For `setvidpid`, enter the VID and PID in hexadecimal format, such as `0x0D28`.
+- For `label`, leave the label blank to remove the saved label.
