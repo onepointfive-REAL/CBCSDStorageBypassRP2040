@@ -49,4 +49,4 @@ This is a clone Waveshare RP2040 Zero, but I'm using it and it works fine.
 
 [Waveshare RP2040-Zero Case with Keyring on Makerworld](https://makerworld.com/en/models/577171-waveshare-rp2040-zero-case-with-keyring)
 
-This is the 3D printed case I'm using for my clone Waveshare. I think it's a different size than the offical one so I had to scale the bottom part to 102% and the top part 100.5%.
+This is the 3D printed case I'm using for my clone Waveshare. I think it's a different size than the offical one so I had to scale the bottom part to 102% and the top part 100.5%. If you want it tighter try 100.75%
