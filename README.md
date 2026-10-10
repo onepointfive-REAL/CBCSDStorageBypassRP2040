@@ -40,3 +40,13 @@ Connect to the board's serial console and enter one of the following commands. Y
 - For `rm`, confirm the deletion when prompted. The root directory `/` cannot be deleted.
 - For `setvidpid`, enter the VID and PID in hexadecimal format, such as `0x0D28`.
 - For `label`, leave the label blank to remove the saved label.
+
+### What clone board I recommend on a budget
+
+[DWEII RP2040 Zero on Amazon](https://www.amazon.com/DWEII-RP2040-Zero-Microcontroller-Development-MicroPython/dp/B0H3Z4BBFG/)
+
+This is a clone Waveshare RP2040 Zero, but I'm using it and it works fine.
+
+[Waveshare RP2040-Zero Case with Keyring on Makerworld](https://makerworld.com/en/models/577171-waveshare-rp2040-zero-case-with-keyring)
+
+This is the 3D printed case I'm using for my clone Waveshare. I think it's a different size than the offical one so I had to scale the bottom part to 102% and the top part 100.5%.
