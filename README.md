@@ -31,6 +31,11 @@ Connect to the board's serial console and enter one of the following commands. Y
 | `version` | Displays the CircuitPython version information. |
 | `device` | Displays information about the microcontroller and its platform. |
 | `resetsettings` | Resets all settings to their defaults by deleting the saved configuration files. |
+| `boardrng` | Generates a SHA-256 hash using urandom, the board UID, temperature, and available RAM. |
+| `boarduid` | Displays the board's unique identifier. |
+| `safemode` | Restarts the board in CircuitPython safe mode. |
+| `bootloader` | Restarts the board into the bootloader. |
+| `ram` | Displays available RAM and optionally cleans up unused objects. |
 
 ### Usage Notes
 
