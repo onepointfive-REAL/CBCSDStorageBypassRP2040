@@ -12,13 +12,13 @@
 ## Instructions
 **If using Waveshare RP2040-Zero:**
 1. Download and flash [CircuitPython for the Waveshare RP2040-Zero](https://circuitpython.org/board/waveshare_rp2040_zero/) if you haven't already.
-2. Download the [latest source code](https://github.com/onepointfive-REAL/RP2040-Custom-Mass-Storage/releases).
+2. Download the [latest source code](https://github.com/onepointfive-REAL/Circuit-PY-Custom-Mass-Storage/releases).
 3. Copy `boot.py` and `code.py` to the `CIRCUITPY` drive.
 4. Unplug and reconnect the board.
 
 **If using Raspberry Pi Zero 2W:**
 1. Download and flash [CircuitPython for the Raspberry Pi Zero 2W](https://circuitpython.org/board/raspberrypi_zero2w/) with balenaEtcher to your SD card if you haven't already.
-2. Download the [latest source code](https://github.com/onepointfive-REAL/RP2040-Custom-Mass-Storage/releases).
+2. Download the [latest source code](https://github.com/onepointfive-REAL/Circuit-PY-Custom-Mass-Storage/releases).
 3. Copy `pizeroboot.py` and `pizerocode.py` to the `CIRCUITPY` drive.
 4. Rename `pizeroboot.py` to `boot.py` and `pizerocode.py` to `code.py`
 5. Unplug and reconnect the board.
@@ -69,5 +69,5 @@ This is a clone Waveshare RP2040 Zero, but I'm using it and it works fine.
 
 This is the 3D printed case I'm using for my clone Waveshare. I think it's a different size than the official one so I had to scale the bottom part to 102% and the top part 100.75%.
 
-EDIT: [Fixed STL with adjusted sizes](https://github.com/onepointfive-REAL/RP2040-Custom-Mass-Storage/blob/main/rp2040_clone_case.stl)
+EDIT: [Fixed STL with adjusted sizes](https://github.com/onepointfive-REAL/Circuit-PY-Custom-Mass-Storage/blob/main/rp2040_clone_case.stl)
 
