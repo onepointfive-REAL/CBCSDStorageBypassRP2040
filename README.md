@@ -1,12 +1,11 @@
-# CBCSDStorageBypass (Waveshare RP2040-Zero version)
-### This version is more stable than the flipper zero version, but it's very small if you want to store files. Maybe getting a SD card reader might help with low storage.
+# RP2040 Custom Mass Storage
 
-Bypasses Council Bluffs Community School District Chromebook's external storage restrictions by posing as a micro:bit storage device with a Waveshare RP2040-Zero (using VID and PID). This works because they approved the micro:bits storage vid and pid for computer science.
+### A customizable mass storage app for the RP2040 with a serial terminal
 
 ## Instructions
 
 1. Download and flash [CircuitPython for the Waveshare RP2040-Zero](https://circuitpython.org/board/waveshare_rp2040_zero/) if you haven't already.
-2. Download the [latest source code](https://github.com/onepointfive-REAL/CBCSDStorageBypassRP2040/releases).
+2. Download the [latest source code](https://github.com/onepointfive-REAL/RP2040-Custom-Mass-Storage/releases).
 3. Copy `boot.py` and `code.py` to the `CIRCUITPY` drive.
 4. Unplug and reconnect the board.
 
@@ -51,5 +50,5 @@ This is a clone Waveshare RP2040 Zero, but I'm using it and it works fine.
 
 This is the 3D printed case I'm using for my clone Waveshare. I think it's a different size than the offical one so I had to scale the bottom part to 102% and the top part 100.75%.
 
-EDIT: [Fixed STL with adjusted sizes](https://github.com/onepointfive-REAL/CBCSDStorageBypassRP2040/blob/main/rp2040_clone_case.stl)
+EDIT: [Fixed STL with adjusted sizes](https://github.com/onepointfive-REAL/RP2040-Custom-Mass-Storage/blob/main/rp2040_clone_case.stl)
 
