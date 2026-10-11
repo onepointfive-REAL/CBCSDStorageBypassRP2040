@@ -6,7 +6,7 @@
 - The experimental CircuitPython port is unstable, so the serial terminal is not available.
 - Use `pizeroboot.py` and `pizerocode.py` instead of `boot.py` and `code.py`.
 - Rename `pizeroboot.py` to `boot.py` and `pizerocode.py` to `code.py` before using them.
-- `pizeroboot.py` must be configured manually before use.
+- `pizeroboot.py` must be configured manually (by editing the file) before use.
 - Attempting to use the RP2040 `code.py` with the Raspberry Pi Zero 2W WILL result in a crash.
 
 ## Instructions
