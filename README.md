@@ -16,8 +16,8 @@ Connect to the board's serial console and enter one of the following commands. Y
 | Command | Description |
 |---|---|
 | `help` | Lists available commands and usage instructions. |
-| `customusb` | Switches to Custom USB VID/PID mode and restarts the device. |
-| `normalusb` | Switches to Normal USB VID/PID mode and restarts the device. |
+| `customusbid` | Switches to Custom USB VID/PID mode and restarts the device. |
+| `normalusbid` | Switches to Normal USB VID/PID mode and restarts the device. |
 | `setvidpid` | Sets a custom USB Vendor ID (VID) and Product ID (PID) using hexadecimal values. |
 | `status` | Displays USB settings and storage statistics, including total and free space. |
 | `label` | Changes the USB drive's volume label. Enter up to 11 characters, or leave blank to delete the saved label. |
@@ -30,7 +30,7 @@ Connect to the board's serial console and enter one of the following commands. Y
 | `reset` | Restarts the microcontroller. |
 | `version` | Displays the CircuitPython version information. |
 | `device` | Displays information about the microcontroller and its platform. |
-| `repl` | Exits the command interface and returns to the CircuitPython REPL. |
+| `resetsettings` | Resets all settings to their defaults by deleting the saved configuration files. |
 
 ### Usage Notes
 
