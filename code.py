@@ -3,6 +3,8 @@ import sys
 import time
 import microcontroller
 import storage
+import hashlib
+import gc
 
 while True:
     command = input("USB> ").strip().lower()
@@ -10,10 +12,55 @@ while True:
     if command == "help":
         print("Available commands:")
         print("")
-        print("customusbid, normalusbid, setvidpid, status, label, ls, reset, version, device, repl, uptime, cat, write, mkdir, rm, resetsettings, help")
+        print("customusbid, normalusbid, setvidpid, status, label, ls, reset, version, device, repl, uptime, cat, write, mkdir, rm, resetsettings, boardrng, boarduid, safemode, bootloader, ram, help")
         print("")
         print("Commands do not accept arguments directly. Enter the command first, then follow the prompts.")
-    
+        
+    elif command == "safemode":
+        microcontroller.on_next_reset(microcontroller.RunMode.SAFE_MODE)
+        microcontroller.reset()
+        
+    elif command == "bootloader":
+        microcontroller.on_next_reset(microcontroller.RunMode.BOOTLOADER)
+        microcontroller.reset()
+        
+    elif command == "boarduid":
+        print("Board UID:", microcontroller.cpu.uid.hex())
+        
+    elif command == "boardrng":
+        gc.collect()
+        hash_obj = hashlib.new("sha256")
+        hash_obj.update(microcontroller.cpu.uid)
+
+        for i in range(1024):
+            hash_obj.update(os.urandom(1024))
+        hash_obj.update(str(microcontroller.cpu.temperature).encode())
+        hash_obj.update(str(gc.mem_free()).encode())
+        print("Random hash:", hash_obj.digest().hex().upper())
+        del hash_obj
+        gc.collect()
+        
+    elif command == "ram":
+        before = gc.mem_free()
+
+        print("Available RAM:", before, "bytes")
+        answer = input("Clean RAM? (y/n): ").strip().lower()
+
+        if answer == "y":
+            gc.collect()
+            after = gc.mem_free()
+            freed = after - before
+
+            print("RAM before:", before, "bytes")
+            print("RAM after:", after, "bytes")
+            print("RAM freed:", max(0, freed), "bytes")
+            
+            del after, freed
+        else:
+            print("RAM cleanup cancelled.")
+            
+        del before, answer
+        
     elif command == "resetsettings":
         confirm = input("Are you sure you want to reset all settings? (y/n): ").strip().lower()
     
