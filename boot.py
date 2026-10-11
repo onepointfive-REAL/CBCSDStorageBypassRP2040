@@ -1,7 +1,7 @@
 import storage
 import supervisor
-DEFAULT_VID = 0x0D28
-DEFAULT_PID = 0x0204
+DEFAULT_VID = 0x1209
+DEFAULT_PID = 0x0001
 
 def read_usb_id(filename, default):
     try:
@@ -25,13 +25,13 @@ try:
     with open("/usbmode.txt", "r") as f:
         mode = f.read().strip()
 except OSError:
-    mode = "1"
+    mode = "0"
 
 if mode == "1":
     vid = read_usb_id("vid.txt", DEFAULT_VID)
     pid = read_usb_id("pid.txt", DEFAULT_PID)
     supervisor.set_usb_identification(
-        manufacturer="NotCBCSD",
+        manufacturer="Raspberry Pi",
         product="RP2040",
         vid=vid,
         pid=pid
