@@ -8,11 +8,37 @@ while True:
     command = input("USB> ").strip().lower()
 
     if command == "help":
-	print("Available commands:")
-	print("")
-        print("customusb, normalusb, setvidpid, status, label, ls, reset, version, device, repl, uptime, cat, write, mkdir, rm, help")
-	print("")
-	print("Commands do not accept arguments directly. Enter the command first, then follow the prompts.")
+        print("Available commands:")
+        print("")
+        print("customusbid, normalusbid, setvidpid, status, label, ls, reset, version, device, repl, uptime, cat, write, mkdir, rm, resetsettings, help")
+        print("")
+        print("Commands do not accept arguments directly. Enter the command first, then follow the prompts.")
+    
+    elif command == "resetsettings":
+        confirm = input("Are you sure you want to reset all settings? (y/n): ").strip().lower()
+    
+        if confirm == "y":
+            storage.unsafe_disable_usb_drive()
+    
+            try:
+                for file in ["/vid.txt", "/pid.txt", "/label.txt", "/usbmode.txt"]:
+                    try:
+                        os.remove(file)
+                    except OSError as e:
+                        if e.args[0] != 2:
+                            raise
+                        else:
+                            pass
+
+                print("Settings reset to defaults.")
+                time.sleep(1)
+                microcontroller.reset()
+
+            except OSError as e:
+                print("Error resetting settings:", e)
+                storage.enable_usb_drive()
+        else:
+            print("Reset cancelled.")
 
     elif command == "repl":
         sys.exit()
@@ -22,7 +48,7 @@ while True:
         hours = elapsed // 3600
         minutes = (elapsed % 3600) // 60
         seconds = elapsed % 60
-        print("Uptime: {:02}:{:02}:{:02}".format(hours, minutes, seconds))
+        print("Uptime: {:02}:{:02}:{:02} (hours, minutes, seconds)".format(hours, minutes, seconds))
 
     elif command == "cat":
         filename = input("File path: ").strip()
@@ -120,21 +146,21 @@ while True:
         s = os.statvfs("/")
         try:
             with open("/usbmode.txt", "r") as f:
-                mode = "Custom USB" if f.read().strip() == "1" else "Normal USB"
+                mode = "Custom USB VID/PID" if f.read().strip() == "1" else "Normal USB VID/PID"
         except OSError:
-            mode = "Custom USB (default)"
+            mode = "Normal USB VID/PID (default)"
 
         try:
             with open("/vid.txt", "r") as f:
                 vid = f.read().strip()
         except OSError:
-            vid = "Default"
+            vid = "Default (0x1209)"
 
         try:
             with open("/pid.txt", "r") as f:
                 pid = f.read().strip()
         except OSError:
-            pid = "Default"
+            pid = "Default (0x0001)"
 
         try:
             with open("/label.txt", "r") as f:
@@ -143,8 +169,8 @@ while True:
             label = "Default"
 
         print("USB Mode:", mode)
-        print("VID:", vid)
-        print("PID:", pid)
+        print("Custom VID:", vid)
+        print("Custom PID:", pid)
         print("Label:", label)
         print("Block size:", s[0])
         print("Total blocks:", s[2])
@@ -212,7 +238,7 @@ while True:
     elif command == "reset":
         microcontroller.reset()
 
-    elif command == "customusb":
+    elif command == "customusbid":
         storage.unsafe_disable_usb_drive()
         try:
             with open("/usbmode.txt", "w") as f:
@@ -222,7 +248,7 @@ while True:
         except OSError as e:
             print("Error:", e)
 
-    elif command == "normalusb":
+    elif command == "normalusbid":
         storage.unsafe_disable_usb_drive()
         try:
             with open("/usbmode.txt", "w") as f:
